@@ -5,6 +5,9 @@ import com.devandre.petclinic.entity.Role;
 import com.devandre.petclinic.repository.RoleRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Optional;
+
 /**
  * andre on 9/10/2023
  */
@@ -19,6 +22,11 @@ public class RoleDaoImpl implements RoleDao {
 
 
     @Override
+    public List<Role> findAllRoles() {
+        return roleRepository.findAll();
+    }
+
+    @Override
     public void createRole(String rolename) {
         var role = new Role();
         role.setName(rolename);
@@ -26,7 +34,8 @@ public class RoleDaoImpl implements RoleDao {
     }
 
     @Override
-    public Role findRoleByName(String name) {
-        return roleRepository.findByName(name);
+    public Optional<Role> selectRoleById(Long id) {
+        return roleRepository.findById(id);
     }
+
 }
