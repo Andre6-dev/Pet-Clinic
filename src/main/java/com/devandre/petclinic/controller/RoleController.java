@@ -1,5 +1,6 @@
 package com.devandre.petclinic.controller;
 
+import com.devandre.petclinic.dto.RoleDto;
 import com.devandre.petclinic.entity.Role;
 import com.devandre.petclinic.service.RoleService;
 import org.springframework.http.ResponseEntity;
@@ -24,12 +25,12 @@ public class RoleController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Role>> getRoles() {
+    public ResponseEntity<List<RoleDto>> getRoles() {
         return ResponseEntity.ok(roleService.findAllRoles());
     }
 
     @GetMapping("{roleId}")
-    public ResponseEntity<Role> getRole(@PathVariable("roleId") Long roleId) {
+    public ResponseEntity<RoleDto> getRole(@PathVariable("roleId") Long roleId) {
         return ResponseEntity.ok(roleService.findRoleByName(roleId));
     }
 }

@@ -20,17 +20,9 @@ public class RoleDaoImpl implements RoleDao {
         this.roleRepository = roleRepository;
     }
 
-
     @Override
     public List<Role> findAllRoles() {
         return roleRepository.findAll();
-    }
-
-    @Override
-    public void createRole(String rolename) {
-        var role = new Role();
-        role.setName(rolename);
-        roleRepository.save(role);
     }
 
     @Override

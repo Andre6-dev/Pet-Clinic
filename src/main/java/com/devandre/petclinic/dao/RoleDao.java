@@ -9,8 +9,6 @@ public interface RoleDao {
 
     List<Role> findAllRoles();
 
-    void createRole(String rolename);
-
     Optional<Role> selectRoleById(Long id);
 
 }
