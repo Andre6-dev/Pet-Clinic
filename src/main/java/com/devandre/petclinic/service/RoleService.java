@@ -21,7 +21,7 @@ public class RoleService {
     private final RoleDao roleDao;
     private final RoleMapper roleMapper;
 
-    public RoleService(@Qualifier("jpa") RoleDao roleDao, RoleMapper roleMapper) {
+    public RoleService(@Qualifier("role-jpa") RoleDao roleDao, RoleMapper roleMapper) {
         this.roleDao = roleDao;
         this.roleMapper = roleMapper;
     }

@@ -9,7 +9,9 @@ public interface UserDao {
 
     List<User> selectAllUsers();
     Optional<User> selectUserById(Long id);
-    void insertUser(User user);
+    User createUser(User user);
+    Optional<User> selectUserByEmail(String email);
+    void assignRoleToUser(String email, String roleName);
     boolean existsUserWithEmail(String email);
     boolean existsUserWithId(Long id);
     void deleteUserById(Long id);

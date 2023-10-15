@@ -11,7 +11,7 @@ import java.util.Optional;
 /**
  * andre on 9/10/2023
  */
-@Repository("jpa")
+@Repository("role-jpa")
 public class RoleDaoImpl implements RoleDao {
 
     private final RoleRepository roleRepository;

@@ -24,19 +24,6 @@ public class Veterinarian {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "veterinarian_id")
     private Long veterinarianId;
-
-    @Column(name = "first_name", length = 45)
-    private String firstname;
-    @Column(name = "last_name", length = 45)
-    private String lastname;
-    @Column(nullable = false, length = 45, unique = true)
-    private String email;
-    @Column(nullable = false, length = 3)
-    private Integer age;
-    @Column(name = "contact_number", length = 12)
-    private String contactNumber;
-    @Column(name = "address", length = 45)
-    private String address;
     @Column(length = 150)
     private String designation;
     @Column(length = 150)
@@ -59,16 +46,20 @@ public class Veterinarian {
     @JoinColumn(name = "user_id", referencedColumnName = "user_id")
     private User user;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_profile_id", referencedColumnName = "user_profile_id")
+    private UserProfile userProfile;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Veterinarian that = (Veterinarian) o;
-        return Objects.equals(veterinarianId, that.veterinarianId) && Objects.equals(firstname, that.firstname) && Objects.equals(lastname, that.lastname) && Objects.equals(email, that.email) && Objects.equals(age, that.age) && Objects.equals(contactNumber, that.contactNumber) && Objects.equals(address, that.address) && Objects.equals(designation, that.designation) && Objects.equals(license, that.license) && Objects.equals(legendColor, that.legendColor) && Objects.equals(createdAt, that.createdAt);
+        return Objects.equals(veterinarianId, that.veterinarianId) && Objects.equals(designation, that.designation) && Objects.equals(license, that.license) && Objects.equals(legendColor, that.legendColor) && Objects.equals(createdAt, that.createdAt);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(veterinarianId, firstname, lastname, email, age, contactNumber, address, designation, license, legendColor, createdAt);
+        return Objects.hash(veterinarianId, designation, license, legendColor, createdAt);
     }
 }
